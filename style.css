@@ -726,3 +726,6 @@ html { scroll-behavior: smooth; }
   transition: opacity .7s ease, transform .7s ease;
 }
 .reveal.in { opacity: 1; transform: none; }
+footer {
+  padding-bottom: 120px !important;
+}
