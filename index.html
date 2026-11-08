@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Luna | Skincare</title>
+  <meta name="description" content="Luna: gentle, effective skincare for every skin tone.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌙</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="announce">Free delivery in Nairobi on orders over KSh 5,000</div>
+
+  <header>
+    <nav class="menu-left">
+      <a href="#">Home</a>
+      <a href="#about">About</a>
+      <a href="#shop">Shop</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#" class="logo">Luna</a>
+    <div class="menu-right">
+      <a href="#" id="search-link">Search</a>
+      <a href="#" id="bag-link">Cart (<span id="bag-count">0</span>)</a>
+      <button class="burger" id="burger">☰</button>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#">Home</a>
+    <a href="#about">About</a>
+    <a href="#shop">Shop</a>
+    <a href="#contact">Contact</a>
+    <a href="#" id="search-link-m">Search</a>
+  </div>
+
+  <div class="searchbar" id="searchbar">
+    <input type="text" id="search-input" placeholder="Search products..." oninput="runSearch(this.value)">
+  </div>
+  <p id="no-results" style="display:none;text-align:center;padding:40px;margin:0;">No products found.</p>
+
+  <section class="hero">
+    <div class="hero-text">
+      <span class="pill">Skin-first care</span>
+      <h1>Glow Softly, Shine Confidently</h1>
+      <p>Gentle formulas made to bring out your natural glow.</p>
+      <a href="#shop" class="btn">Shop now →</a>
+    </div>
+    <div class="hero-card">
+      <b>Luna Glow Serum</b>
+      <p>Brightens and evens skin tone.</p>
+      <a href="#shop">Add to cart →</a>
+    </div>
+  </section>
+
+  <section class="new" id="shop">
+    <span class="pill">New arrival</span>
+    <h2>Just In: Fresh Glow Essentials</h2>
+    <div class="grid">
+      <div class="card">
+        <div class="card-img"><img src="images/product1.jpg" alt="Pure Calm Cleansing Balm"></div>
+        <div class="card-info">
+          <span class="brand">Luna</span>
+          <h3>Pure Calm Cleansing Balm</h3>
+          <p>Melts away makeup while calming your skin.</p>
+          <div class="card-bottom"><b>KSh 2,500</b><button class="buy">Buy now →</button></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img"><img src="images/product2.jpg" alt="Daily Defense SPF 50"></div>
+        <div class="card-info">
+          <span class="brand">Luna</span>
+          <h3>Daily Defense SPF 50</h3>
+          <p>Lightweight sunscreen that hydrates all day.</p>
+          <div class="card-bottom"><b>KSh 2,800</b><button class="buy">Buy now →</button></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img"><img src="images/product3.jpg" alt="Glow Vitamin C Serum"></div>
+        <div class="card-info">
+          <span class="brand">Luna</span>
+          <h3>Glow Vitamin C Serum</h3>
+          <p>Brightens and evens skin tone.</p>
+          <div class="card-bottom"><b>KSh 3,200</b><button class="buy">Buy now →</button></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sale">
+    <span class="pill">Limited offer</span>
+    <h2>Weekend Glow Sale</h2>
+    <p>Up to 20% off selected skincare. While stock lasts.</p>
+    <a href="#shop" class="btn">Shop the sale →</a>
+  </section>
+
+  <section class="categories">
+    <span class="pill">Categories</span>
+    <h2>Find the Perfect Step for Your Skin</h2>
+    <div class="cat-grid"><a href="#shop" class="cat" onclick="showAll();return false;">All products</a>
+      <a href="#shop" class="cat" onclick="filterCat(['cleanser','balm']);return false;">Cleansers</a>
+      <a href="#shop" class="cat">Serums</a>
+      <a href="#shop" class="cat">Moisturizers</a>
+      <a href="#shop" class="cat">Sun care</a>
+    </div>
+  </section>
+
+  <section class="best">
+    <span class="pill">Best sellers</span>
+    <h2>Loved by the Luna Community</h2>
+    <div class="grid">
+      <div class="card">
+        <div class="card-img"><img src="images/product4.jpg" alt="Cloud Hydra Moisturizer"></div>
+        <div class="card-info">
+          <span class="brand">Luna</span>
+          <h3>Cloud Hydra Moisturizer</h3>
+          <p>Lightweight cream with 24-hour hydration.</p>
+          <div class="card-bottom"><b>KSh 2,500</b><button class="buy">Buy now →</button></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img"><img src="images/product5.jpg" alt="Gentle pH Cleanser"></div>
+        <div class="card-info">
+          <span class="brand">Luna</span>
+          <h3>Gentle pH Cleanser</h3>
+          <p>Soft, low-foam cleanser for daily use.</p>
+          <div class="card-bottom"><b>KSh 1,800</b><button class="buy">Buy now →</button></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img"><img src="images/product6.jpg" alt="Rose Petal Face Oil"></div>
+        <div class="card-info">
+          <span class="brand">Luna</span>
+          <h3>Rose Petal Face Oil</h3>
+          <p>Nourishing oil for a soft, dewy finish.</p>
+          <div class="card-bottom"><b>KSh 3,500</b><button class="buy">Buy now →</button></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SAMPLE REVIEWS: replace with real customer reviews -->
+  <section class="reviews">
+    <span class="pill">Reviews</span>
+    <h2>What Our Customers Say</h2>
+    <div class="review-grid">
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <p>"My skin has never felt softer. The serum is now part of my daily routine."</p>
+        <b>Amina K.</b>
+      </div>
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <p>"Gentle, light and effective. I love the sunscreen under my makeup."</p>
+        <b>Grace M.</b>
+      </div>
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <p>"Fast delivery and beautiful packaging. I'll order again."</p>
+        <b>Sarah T.</b>
+      </div>
+    </div>
+  </section>
+
+  <!-- SAMPLE TEXT: edit to match your brand -->
+  <section class="story" id="about">
+    <span class="pill">Our story</span>
+    <h2>Skincare, made simple</h2>
+    <p class="story-text">Luna started with one idea: skincare should be gentle, honest and effective. Every product is made with ingredients you can pronounce, for every skin tone and every routine.</p>
+  </section>
+
+  <section class="faq">
+    <span class="pill">FAQ</span>
+    <h2>Good to know</h2>
+    <div class="faq-list">
+      <details>
+        <summary>How long does delivery take?</summary>
+        <p>Orders are delivered within 2 to 5 working days.</p>
+      </details>
+      <details>
+        <summary>How do I place an order?</summary>
+        <p>Add products to your cart and press Checkout. Your order opens in WhatsApp, and we confirm it with you.</p>
+      </details>
+      <details>
+        <summary>Is it safe for sensitive skin?</summary>
+        <p>Our formulas are gentle, but do a small patch test first if your skin is very sensitive.</p>
+      </details>
+      <details>
+        <summary>Can I return a product?</summary>
+        <p>Yes. Unopened products can be returned within 14 days.</p>
+      </details>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2>Ready to Start Your Luna Journey?</h2>
+    <a href="#shop" class="btn">Shop all products →</a>
+  </section>
+
+  <footer id="contact">
+    <p>© 2026 Luna</p>
+    <div class="credit">
+      <p>Website by: <b>Michael Watanga</b></p>
+      <p>Email: <a href="mailto:watangamichael00@gmail.com">watangamichael00@gmail.com</a></p>
+      <p>Cell: <a href="tel:0116470318">0116470318</a></p>
+    </div>
+  </footer>
+
+  <div class="bag-overlay" id="bag-overlay"></div>
+  <aside class="bag-panel" id="bag-panel">
+    <div class="bag-head">
+      <h3>Your cart</h3>
+      <button id="bag-close">✕</button>
+    </div>
+    <div id="bag-items"></div>
+    <div class="bag-foot">
+      <div class="bag-total">Total: <b id="bag-total">KSh 0</b></div>
+      <button class="btn" id="checkout">Checkout</button>
+    </div>
+  </aside>
+
+  <a href="#" id="wa-float" target="_blank" rel="noopener" title="Chat on WhatsApp"
+     style="position:fixed;right:18px;bottom:18px;display:flex;align-items:center;gap:8px;background:#25d366;color:#fff;padding:12px 18px;border-radius:30px;font:600 14px Inter,sans-serif;text-decoration:none;box-shadow:0 6px 18px rgba(0,0,0,.25);z-index:15;">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.3-.15-1.263-.465-2.403-1.485-.888-.795-1.484-1.77-1.66-2.07-.174-.3-.019-.465.13-.615.136-.135.301-.345.451-.523.146-.181.194-.301.297-.496.1-.21.049-.375-.025-.524-.075-.15-.672-1.62-.922-2.206-.24-.584-.487-.51-.672-.51-.172-.015-.371-.015-.571-.015-.2 0-.523.074-.797.359-.273.3-1.045 1.02-1.045 2.475s1.07 2.865 1.219 3.075c.149.18 2.095 3.195 5.076 4.483.709.3 1.263.489 1.694.626.712.226 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.123-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    WhatsApp
+  </a>
+
+  <script>
+    var SETTINGS = { brand: "Luna", whatsapp: "254116470318" };
+
+    document.getElementById("wa-float").href = "https://wa.me/" + SETTINGS.whatsapp;
+
+    var bag = {};
+    function money(n) { return "KSh " + Math.round(n).toLocaleString("en-US"); }
+
+    function render() {
+      var html = "", total = 0, count = 0;
+      for (var name in bag) {
+        var it = bag[name];
+        total += it.price * it.qty;
+        count += it.qty;
+        html += '<div class="bag-row"><div><b>' + name + '</b><br><small>' + money(it.price) + '</small></div>' +
+                '<div class="bag-qty"><button data-act="minus" data-name="' + name + '">−</button> ' + it.qty +
+                ' <button data-act="plus" data-name="' + name + '">+</button></div></div>';
+      }
+      document.getElementById("bag-items").innerHTML = html || '<p class="bag-empty">Your cart is empty.</p>';
+      document.getElementById("bag-total").textContent = money(total);
+      document.getElementById("bag-count").textContent = count;
+    }
+    function openBag() {
+      document.getElementById("bag-panel").classList.add("open");
+      document.getElementById("bag-overlay").classList.add("open");
+    }
+    function closeBag() {
+      document.getElementById("bag-panel").classList.remove("open");
+      document.getElementById("bag-overlay").classList.remove("open");
+    }
+
+    document.addEventListener("click", function (e) {
+      var buy = e.target.closest(".buy");
+      if (buy) {
+        var card = buy.closest(".card");
+        var name = card.querySelector("h3").textContent;
+        var price = parseFloat(card.querySelector("b").textContent.replace(/[^0-9.]/g, ""));
+        if (!bag[name]) bag[name] = { price: price, qty: 0 };
+        bag[name].qty++;
+        render();
+        buy.textContent = "Added ✓";
+        setTimeout(function () { buy.textContent = "Buy now →"; }, 1200);
+        return;
+      }
+      if (e.target.closest("#bag-link")) { e.preventDefault(); openBag(); return; }
+      if (e.target.id === "bag-close" || e.target.id === "bag-overlay") { closeBag(); return; }
+      if (e.target.id === "checkout") {
+        var lines = [], total = 0;
+        for (var nm in bag) {
+          lines.push(bag[nm].qty + " x " + nm + " - " + money(bag[nm].price * bag[nm].qty));
+          total += bag[nm].price * bag[nm].qty;
+        }
+        if (!lines.length) { alert("Your cart is empty."); return; }
+        var msg = "Hello " + SETTINGS.brand + ", I would like to order:\n" + lines.join("\n") + "\nTotal: " + money(total);
+        window.open("https://wa.me/" + SETTINGS.whatsapp + "?text=" + encodeURIComponent(msg), "_blank");
+        return;
+      }
+      var act = e.target.getAttribute("data-act");
+      if (act) {
+        var n = e.target.getAttribute("data-name");
+        bag[n].qty += (act === "plus" ? 1 : -1);
+        if (bag[n].qty <= 0) delete bag[n];
+        render();
+      }
+    });
+    render();
+
+    var burger = document.getElementById("burger");
+    var menu = document.getElementById("mobile-menu");
+    var sbar = document.getElementById("searchbar");
+    var sinput = document.getElementById("search-input");
+
+    burger.addEventListener("click", function () { menu.classList.toggle("open"); });
+    menu.addEventListener("click", function (e) {
+      if (e.target.tagName === "A") menu.classList.remove("open");
+    });
+    function toggleSearch(e) {
+      e.preventDefault();
+      sbar.classList.toggle("open");
+      menu.classList.remove("open");
+      if (sbar.classList.contains("open")) sinput.focus();
+    }
+    document.getElementById("search-link").addEventListener("click", toggleSearch);
+    document.getElementById("search-link-m").addEventListener("click", toggleSearch);
+
+    function runSearch(value) {
+      var q = value.toLowerCase().trim();
+      var searching = q.length > 0;
+      var found = 0;
+
+      document.querySelectorAll(".card").forEach(function (c) {
+        var match = c.textContent.toLowerCase().indexOf(q) > -1;
+        c.style.display = match ? "" : "none";
+        if (match) found++;
+      });
+
+      ["hero", "sale", "categories", "reviews", "story", "faq", "cta"].forEach(function (cls) {
+        var el = document.querySelector("." + cls);
+        if (el) el.style.display = searching ? "none" : "";
+      });
+
+      document.querySelectorAll(".new, .best").forEach(function (s) {
+        var any = Array.prototype.some.call(s.querySelectorAll(".card"), function (c) {
+          return c.style.display !== "none";
+        });
+        s.style.display = any ? "" : "none";
+      });
+
+      document.getElementById("no-results").style.display = (searching && found === 0) ? "block" : "none";
+    }
+  </script>
+<script>
+(function () {
+  var map = {
+    "Cleansers": ["cleanser", "balm"],
+    "Serums": ["serum", "oil"],
+    "Moisturizers": ["moisturizer"],
+    "Sun care": ["spf", "sunscreen"]
+  };
+
+  var grid = document.querySelector(".cat-grid");
+  var all = document.createElement("a");
+  all.href = "#shop";
+  all.className = "cat";
+  all.textContent = "All products";
+  grid.insertBefore(all, grid.firstChild);
+
+  function updateSections() {
+    var first = null;
+    document.querySelectorAll(".new, .best").forEach(function (s) {
+      var any = Array.prototype.some.call(s.querySelectorAll(".card"), function (c) {
+        return c.style.display !== "none";
+      });
+      s.style.display = any ? "" : "none";
+      if (any && !first) first = s;
+    });
+    if (first) first.scrollIntoView({ behavior: "smooth" });
+  }
+
+  function filterCat(keys) {
+    document.querySelectorAll(".card").forEach(function (c) {
+      var t = c.textContent.toLowerCase();
+      c.style.display = keys.some(function (k) { return t.indexOf(k) > -1; }) ? "" : "none";
+    });
+    updateSections();
+  }
+
+  function showAll() {
+    document.querySelectorAll(".card").forEach(function (c) { c.style.display = ""; });
+    updateSections();
+  }
+
+  grid.addEventListener("click", function (e) {
+    var a = e.target.closest(".cat");
+    if (!a) return;
+    e.preventDefault();
+    var name = a.textContent.trim();
+    if (name === "All products") showAll();
+    else if (map[name]) filterCat(map[name]);
+  });
+})();
+</script>
+<script>
+(function () {
+  var seen = false;
+  document.querySelectorAll(".cat-grid .cat").forEach(function (a) {
+    if (a.textContent.trim() === "All products") {
+      if (seen) a.remove(); else seen = true;
+    }
+  });
+})();
+</script>
+<script>
+(function () {
+  var BUILDER = { whatsapp: "254116470318", email: "watangamichael00@gmail.com" };
+
+  var sec = document.createElement("section");
+  sec.className = "hire";
+  sec.innerHTML =
+    '<span class="pill">Portfolio project</span>' +
+    '<h2>Need a website like this?</h2>' +
+    '<p class="hire-text">Luna is a demo store I designed and built from scratch. I build clean, mobile-friendly websites and online shops for small businesses.</p>' +
+    '<div class="skills"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Responsive design</span><span>WhatsApp checkout</span></div>' +
+    '<div class="hire-btns">' +
+      '<a class="btn" target="_blank" rel="noopener" href="https://wa.me/' + BUILDER.whatsapp + '?text=' + encodeURIComponent("Hi Michael, I saw the Luna website and I would like a website for my business.") + '">Chat on WhatsApp</a>' +
+      '<a class="btn btn-light" href="mailto:' + BUILDER.email + '">Send an email</a>' +
+    '</div>';
+
+  var footer = document.getElementById("contact");
+  footer.parentNode.insertBefore(sec, footer);
+
+  var oldSearch = runSearch;
+  runSearch = function (v) {
+    oldSearch(v);
+    sec.style.display = v.trim() ? "none" : "";
+  };
+})();
+</script>
+<script>
+(function () {
+  var modal = document.createElement("div");
+  modal.className = "qv";
+  modal.innerHTML =
+    '<div class="qv-box">' +
+      '<button class="qv-close" aria-label="Close">✕</button>' +
+      '<div class="qv-img"></div>' +
+      '<div class="qv-info">' +
+        '<span class="brand">Luna</span>' +
+        '<h3 class="qv-name"></h3>' +
+        '<div class="qv-price"></div>' +
+        '<p class="qv-desc"></p>' +
+        '<ul class="qv-list">' +
+          '<li>Delivery in 2 to 5 working days</li>' +
+          '<li>Order through WhatsApp</li>' +
+          '<li>Unopened products can be returned within 14 days</li>' +
+        '</ul>' +
+        '<button class="btn qv-add">Add to cart</button>' +
+      '</div>' +
+    '</div>';
+  document.body.appendChild(modal);
+
+  var current = null;
+
+  function openQV(card) {
+    current = card;
+    var img = card.querySelector("img");
+    modal.querySelector(".qv-img").innerHTML = img ? '<img src="' + img.getAttribute("src") + '" alt="">' : "";
+    modal.querySelector(".qv-name").textContent = card.querySelector("h3").textContent;
+    modal.querySelector(".qv-price").textContent = card.querySelector("b").textContent;
+    modal.querySelector(".qv-desc").textContent = card.querySelector("p").textContent;
+    modal.classList.add("open");
+  }
+  function closeQV() { modal.classList.remove("open"); }
+
+  document.addEventListener("click", function (e) {
+    if (e.target.closest(".qv-box") && !e.target.closest(".qv-close") && !e.target.closest(".qv-add")) return;
+
+    if (e.target === modal || e.target.closest(".qv-close")) { closeQV(); return; }
+
+    var add = e.target.closest(".qv-add");
+    if (add && current) {
+      current.querySelector(".buy").click();
+      add.textContent = "Added ✓";
+      setTimeout(function () { add.textContent = "Add to cart"; }, 1200);
+      return;
+    }
+
+    if (e.target.closest(".buy")) return;
+    var card = e.target.closest(".card");
+    if (card) openQV(card);
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") closeQV();
+  });
+})();
+</script>
+<script>
+(function () {
+  /* 1. TRUST STRIP */
+  var trust = document.createElement("section");
+  trust.className = "trust";
+  trust.innerHTML =
+    '<div><b>🚚 Free delivery</b><span>Nairobi orders over KSh 5,000</span></div>' +
+    '<div><b>🌿 Gentle formulas</b><span>Made for every skin tone</span></div>' +
+    '<div><b>💬 Order on WhatsApp</b><span>Fast replies, easy checkout</span></div>' +
+    '<div><b>↩️ Easy returns</b><span>Within 14 days, unopened</span></div>';
+  var shop = document.getElementById("shop");
+  shop.parentNode.insertBefore(trust, shop);
+
+  /* 2. SORT BY PRICE */
+  var bar = document.createElement("div");
+  bar.className = "sortbar";
+  bar.innerHTML =
+    '<label>Sort products: </label>' +
+    '<select id="sort-select">' +
+      '<option value="default">Featured</option>' +
+      '<option value="low">Price: low to high</option>' +
+      '<option value="high">Price: high to low</option>' +
+    '</select>';
+  var h2 = shop.querySelector("h2");
+  h2.parentNode.insertBefore(bar, h2.nextSibling);
+
+  var order = 0;
+  document.querySelectorAll(".card").forEach(function (c) {
+    c.setAttribute("data-i", order++);
+  });
+  function price(c) {
+    return parseFloat(c.querySelector(".card-bottom b").textContent.replace(/[^0-9.]/g, "")) || 0;
+  }
+  document.getElementById("sort-select").addEventListener("change", function () {
+    var mode = this.value;
+    document.querySelectorAll(".grid").forEach(function (g) {
+      var cards = Array.prototype.slice.call(g.querySelectorAll(".card"));
+      cards.sort(function (a, b) {
+        if (mode === "low") return price(a) - price(b);
+        if (mode === "high") return price(b) - price(a);
+        return a.getAttribute("data-i") - b.getAttribute("data-i");
+      });
+      cards.forEach(function (c) { g.appendChild(c); });
+    });
+  });
+
+  /* 3. WISHLIST HEARTS */
+  var wish = [];
+  try { wish = JSON.parse(localStorage.getItem("luna_wish") || "[]"); } catch (e) {}
+  document.querySelectorAll(".card").forEach(function (c) {
+    var name = c.querySelector("h3").textContent;
+    var btn = document.createElement("button");
+    btn.className = "heart" + (wish.indexOf(name) > -1 ? " on" : "");
+    btn.setAttribute("aria-label", "Save to wishlist");
+    btn.textContent = "♥";
+    btn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      var i = wish.indexOf(name);
+      if (i > -1) wish.splice(i, 1); else wish.push(name);
+      btn.classList.toggle("on", i === -1);
+      try { localStorage.setItem("luna_wish", JSON.stringify(wish)); } catch (err) {}
+    });
+    c.querySelector(".card-img").appendChild(btn);
+  });
+
+  /* 4. SCROLL ANIMATIONS */
+  if ("IntersectionObserver" in window &&
+      !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); }
+      });
+    }, { threshold: 0.08 });
+    document.querySelectorAll("section:not(.hero)").forEach(function (s) {
+      s.classList.add("reveal");
+      io.observe(s);
+    });
+  }
+
+  /* hide the trust strip while searching */
+  var prev = runSearch;
+  runSearch = function (v) {
+    prev(v);
+    trust.style.display = v.trim() ? "none" : "";
+  };
+})();
+</script>
+</body>
+</html>
